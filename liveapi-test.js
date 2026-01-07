@@ -5,7 +5,7 @@ const toString = (any) => {
 const log = (...any) => post(...any.map(toString), "\n");
 const error = (...any) => globalThis.error(...any.map(toString), "\n");
 log("------------------------------------------------,\n", new Date());
-id = 2;
+var id = 2;
 
 function setidx(i) {
   id = i;
@@ -20,13 +20,16 @@ const liveObject = new LiveAPI(sample_callback, myid);
     log("id:", liveObject.id);
     //log("children:", liveObject.children);
     //log("info:", liveObject.info);
+    //log("devtype", liveObject.get("class_name"))
     //log("children:", liveObject.children.parameters);
-    log("type:", liveObject.type);
-    log("name:", liveObject.get("name"));
+    //log("type:", liveObject.type);
+    //log("name:", liveObject.get("name"));
 
 
-    var p = liveObject.patcher;
-    log("patcher:", p.name);
+      var dp = liveObject.children.parameters;
+    log("parameter:", dp);
+    //var o = p.firstobject;
+    //log("maxobj:", o.getattr("valid"));
     /*var o = patcher.getnamed("baba");
     var n = o.getattr("class_display_name");
     log("name:", n);*/
